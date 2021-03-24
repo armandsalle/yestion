@@ -10,7 +10,6 @@ const options = {
     }),
   ],
   database: process.env.DB_URI,
-  //   debug: process.env.NODE_ENV === "development",
   secret: process.env.AUTH_SECRET,
   jwt: {
     secret: process.env.JWT_SECRET,

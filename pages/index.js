@@ -11,7 +11,7 @@ export default function Home() {
     const t = await fetch("/api/todo")
     const data = await t.json()
 
-    setTodos(data.todo.reverse())
+    setTodos(data.todos?.reverse() || [])
   }
 
   useEffect(() => {
