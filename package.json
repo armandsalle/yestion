@@ -8,9 +8,15 @@
     "start": "next start"
   },
   "dependencies": {
+    "mongodb": "^3.6.5",
     "mongoose": "^5.12.2",
     "next": "10.0.9",
+    "next-auth": "^3.13.3",
     "react": "17.0.1",
-    "react-dom": "17.0.1"
+    "react-dom": "17.0.1",
+    "react-social-login-buttons": "^3.4.0"
+  },
+  "peerOptionalDependencies": {
+    "mongodb": "^3.6.5"
   }
 }
