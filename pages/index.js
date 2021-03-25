@@ -1,5 +1,6 @@
 import Head from 'next/head'
-import { signIn, signOut, useSession } from 'next-auth/client'
+import Link from 'next/link'
+import { signIn, useSession } from 'next-auth/client'
 import { GithubLoginButton } from 'react-social-login-buttons'
 import { useState, useEffect } from 'react'
 
@@ -20,10 +21,6 @@ export default function Home() {
     }
   }, [session])
 
-  if (loading) {
-    return <p>loading...</p>
-  }
-
   return (
     <div>
       <Head>
@@ -31,49 +28,56 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      {!session ? (
-        <GithubLoginButton onClick={() => signIn('github')} />
-      ) : (
-        <button onClick={() => signOut()}>Sign Out</button>
-      )}
+      <main className="flex flex-col mt-12">
+        {loading && <p>loading</p>}
+        {!session && (
+          <div className="mx-auto rounded-md bg-gray-200 p-6 flex justify-center flex-col mt-12">
+            <h2 className="text-4xl pb-8 text-center">Sign in</h2>
+            <GithubLoginButton onClick={() => signIn('github')} style={{ maxWidth: 220 }} />
+          </div>
+        )}
+        {session && !todos && <p>loading</p>}
+        {session && todos && (
+          <>
+            <h2 className="text-4xl">
+              Todos <span className="text-base">{todos.length}</span>
+            </h2>
 
-      {session && <p>Hello {session.user.name}</p>}
-      {session && session.user.image && (
-        <img
-          src={session.user.image}
-          style={{ width: 50, borderRadius: '50%' }}
-          alt="user profil"
-        />
-      )}
-      {session && !todos && <p>loading</p>}
-      {session && todos && (
-        <>
-          <h1>Todos</h1>
-          <hr />
-          {todos.map((e, i) => (
-            <div key={i}>
-              <h1>{e.title}</h1>
-              <p>
-                <span>complete: {e.complete ? 'Yes' : 'No'}</span>
-              </p>
-              {e.body.map((el, i) => (
-                <div key={i}>
-                  {el.as === 'Text' && <p>{el.content}</p>}
-                  {el.as === 'Title' && <h3>{el.content}</h3>}
-                  {el.as === 'List' && (
-                    <ul>
-                      {el.contentList.map((li, index) => (
-                        <li key={index}>{li.content}</li>
-                      ))}
-                    </ul>
-                  )}
-                </div>
+            <section className="mt-3">
+              {todos.map((e, i) => (
+                <Link href={`/todo/${e._id}`} key={i} passHref>
+                  <a href="dummy">
+                    <div className="ml-3 my-5">
+                      <h3 className={`inline text-2xl relative ${e.complete && 'text-gray-300'}`}>
+                        {e.title}
+                        {e.complete && (
+                          <div
+                            className="w-full absolute top-1/2 translate-y-1/2 bg-gray-400"
+                            style={{ height: 2 }}
+                          ></div>
+                        )}
+                      </h3>
+                    </div>
+                  </a>
+                </Link>
               ))}
-              <hr />
-            </div>
-          ))}
-        </>
-      )}
+            </section>
+          </>
+        )}
+      </main>
+      {/* {e.body.map((el, i) => (
+                    <div key={i}>
+                      {el.as === 'Text' && <p>{el.content}</p>}
+                      {el.as === 'Title' && <h3>{el.content}</h3>}
+                      {el.as === 'List' && (
+                        <ul>
+                          {el.contentList.map((li, index) => (
+                            <li key={index}>{li.content}</li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  ))} */}
     </div>
   )
 }
