@@ -39,7 +39,11 @@ export default function Home() {
 
       {session && <p>Hello {session.user.name}</p>}
       {session && session.user.image && (
-        <img src={session.user.image} style={{ width: 50, borderRadius: '50%' }} />
+        <img
+          src={session.user.image}
+          style={{ width: 50, borderRadius: '50%' }}
+          alt="user profil"
+        />
       )}
       {session && !todos && <p>loading</p>}
       {session && todos && (

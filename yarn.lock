@@ -873,6 +873,11 @@
   resolved "https://registry.yarnpkg.com/@next/env/-/env-10.0.9.tgz#455fd364c8a5ee012b2cd4406d5294164990706d"
   integrity sha512-MERX3DY5u0Ed29eAsXeFBCZlFAGBtmjf7+Nht0hfgB25MPKKkIbC/0MRPcX/PQcAgLHsAHO6ay1u9xKzR4Vzjw==
 
+"@next/eslint-plugin-next@^10.0.9":
+  version "10.0.9"
+  resolved "https://registry.yarnpkg.com/@next/eslint-plugin-next/-/eslint-plugin-next-10.0.9.tgz#9cc9dae8346df9ffc06797fa2a6dab9afc89b5cf"
+  integrity sha512-xvC3hYsKscc+Hwf9uatUWnheLd5/CyHf2ALvPqYIbdPNhVObW8400V8S1CqlicmufYnORsvoU86d6MHgcETfeg==
+
 "@next/polyfill-module@10.0.9":
   version "10.0.9"
   resolved "https://registry.yarnpkg.com/@next/polyfill-module/-/polyfill-module-10.0.9.tgz#0c21442dd73ec31ae30ac560bc5c5fdce068a98f"
