@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@next/eslint-plugin-next": "^10.0.9",
+    "classnames": "^2.2.6",
     "mongodb": "^3.6.5",
     "mongoose": "^5.12.2",
     "next": "10.0.9",

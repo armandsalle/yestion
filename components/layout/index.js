@@ -4,7 +4,9 @@ const Layout = ({ Component, pageProps }) => {
   return (
     <div className="container">
       <Header />
-      <Component {...pageProps} />
+      <main className="flex flex-col mt-12">
+        <Component {...pageProps} />
+      </main>
     </div>
   )
 }

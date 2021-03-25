@@ -9,6 +9,9 @@ const options = {
       clientSecret: process.env.GITHUB_CLIENT_SECRET,
     }),
   ],
+  pages: {
+    signIn: '/signin',
+  },
   database: process.env.DB_URI,
   secret: process.env.AUTH_SECRET,
   jwt: {

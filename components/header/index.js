@@ -1,8 +1,8 @@
 import Link from 'next/link'
-import { signOut, useSession } from 'next-auth/client'
+import { signOut, useSession, signIn } from 'next-auth/client'
 
 const Header = () => {
-  const [session] = useSession()
+  const [session, loading] = useSession()
 
   return (
     <header className="pt-5 flex justify-between">
@@ -28,6 +28,16 @@ const Header = () => {
               onClick={() => signOut()}
             >
               Sign Out
+            </button>
+          </>
+        )}
+        {!loading && !session && (
+          <>
+            <button
+              className="ml-3 px-3 py-2 rounded-md bg-black text-white"
+              onClick={() => signIn()}
+            >
+              Sign In
             </button>
           </>
         )}
