@@ -10,7 +10,7 @@ export default function Home() {
   const getTodos = async () => {
     const t = await fetch("/api/todo")
     const data = await t.json()
-
+    console.log(data.todos)
     setTodos(data.todos?.reverse() || [])
   }
 

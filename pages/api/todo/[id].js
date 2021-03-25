@@ -1,38 +1,16 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import mongoose from "mongoose"
-import { Todo } from "../../../lib/schemas/TodoSchema"
+import { TodoController } from "../../../lib/controllers/TodoController"
+import { allowHeadersMiddleware } from "../../../lib/middlewares/allowHeadersMiddleware"
+import { dbConnectMiddleware } from "../../../lib/middlewares/dbConnectMiddleware"
+import { sessionMiddleware } from "../../../lib/middlewares/sessionMiddleware"
+import nc from "next-connect"
 
-const handleGet = async (req, res) => {
-  try {
-    const { id } = req.query
-    const result = await Todo.findById(id)
-    res.status(200).json({ todo: result })
-  } catch (error) {
-    console.error(error)
-    res.status(500).json({ status: "fail fetching a todo" })
-  }
-}
+const handler = nc({ onNoMatch: (req, res) => allowHeadersMiddleware(req, res, ["GET"]) })
 
-export default async (req, res) => {
-  const { method } = req
+handler.use(sessionMiddleware)
+handler.use(dbConnectMiddleware)
 
-  try {
-    await mongoose.connect(process.env.DB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+handler.get(async (req, res) => {
+  await TodoController.getTodo(req, res)
+})
 
-    switch (method) {
-      case "GET":
-        await handleGet(req, res)
-        break
-
-      default:
-        res.setHeader("Allow", ["GET"])
-        res.status(405).json({
-          status: 405,
-          message: `Method ${method} Not Allowed`,
-        })
-    }
-  } catch (error) {
-    console.error(error)
-    res.status(500).json({ status: "fail" })
-  }
-}
+export default handler
