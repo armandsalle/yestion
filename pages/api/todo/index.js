@@ -1,10 +1,10 @@
-import { TodoController } from "../../../lib/controllers/TodoController"
-import { sessionMiddleware } from "../../../lib/middlewares/sessionMiddleware"
-import { dbConnectMiddleware } from "../../../lib/middlewares/dbConnectMiddleware"
-import { allowHeadersMiddleware } from "../../../lib/middlewares/allowHeadersMiddleware"
-import nc from "next-connect"
+import { TodoController } from '../../../lib/controllers/TodoController'
+import { sessionMiddleware } from '../../../lib/middlewares/sessionMiddleware'
+import { dbConnectMiddleware } from '../../../lib/middlewares/dbConnectMiddleware'
+import { allowHeadersMiddleware } from '../../../lib/middlewares/allowHeadersMiddleware'
+import nc from 'next-connect'
 
-const handler = nc({ onNoMatch: (req, res) => allowHeadersMiddleware(req, res, ["GET", "POST"]) })
+const handler = nc({ onNoMatch: (req, res) => allowHeadersMiddleware(req, res, ['GET', 'POST']) })
 
 handler.use(sessionMiddleware)
 handler.use(dbConnectMiddleware)

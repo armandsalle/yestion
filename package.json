@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "eslint ./",
+    "lint-fix": "eslint ./ --fix"
   },
   "dependencies": {
     "mongodb": "^3.6.5",
@@ -19,5 +21,27 @@
   },
   "peerOptionalDependencies": {
     "mongodb": "^3.6.5"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.13.12",
+    "babel-eslint": "^10.1.0",
+    "babel-plugin-root-import": "^6.6.0",
+    "babel-polyfill": "^6.26.0",
+    "eslint": "^7.22.0",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-config-react-app": "^6.0.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-flowtype": "^5.4.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-promise": "^4.3.1",
+    "eslint-plugin-react": "^7.23.1",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-plugin-standard": "^5.0.0",
+    "husky": "^5.2.0",
+    "lint-staged": "^10.5.4",
+    "prettier": "^2.2.1"
   }
 }

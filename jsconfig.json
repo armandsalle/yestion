@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/controllers/*": ["lib/controllers/*"],
+      "@/middlewares/*": ["lib/middlewares/*"],
+      "@/schemas/*": ["lib/schemas/*"],
+      "@/api/*": ["pages/api*"],
+      "@/pages/*": ["pages/*"],
+      "@/public/*": ["public/*"],
+      "@/styles/*": ["styles/*"]
+    }
+  }
+}
