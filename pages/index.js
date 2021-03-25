@@ -2,24 +2,24 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { signIn, useSession } from 'next-auth/client'
 import { GithubLoginButton } from 'react-social-login-buttons'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 
 export default function Home() {
   const [session, loading] = useSession()
   const [todos, setTodos] = useState()
 
-  const getTodos = async () => {
+  const getTodos = useCallback(async () => {
     const t = await fetch('/api/todo')
     const data = await t.json()
     console.log(data.todos)
     setTodos(data.todos?.reverse() || [])
-  }
+  }, [])
 
   useEffect(() => {
     if (session) {
       getTodos()
     }
-  }, [session])
+  }, [session, getTodos])
 
   return (
     <div>

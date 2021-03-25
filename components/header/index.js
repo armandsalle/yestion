@@ -1,7 +1,9 @@
 import Link from 'next/link'
-import { signOut } from 'next-auth/client'
+import { signOut, useSession } from 'next-auth/client'
 
-const Header = ({ session }) => {
+const Header = () => {
+  const [session] = useSession()
+
   return (
     <header className="pt-5 flex justify-between">
       <Link href="/" passHref>

@@ -1,4 +1,4 @@
-import Layout from 'components/layout'
+import Layout from '@/components/layout'
 import { Provider } from 'next-auth/client'
 import 'tailwindcss/tailwind.css'
 
