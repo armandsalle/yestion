@@ -52,8 +52,8 @@
     }
   },
   "lint-staged": {
-    "*.@(js|jsx|json)": [
-      "yarn lint",
-      "yarn format"
-    ]}
+    "*.{js,jsx}": [
+      "eslint ./ --fix"
+    ]
+  }
 }
