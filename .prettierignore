@@ -1,1 +1,23 @@
-./.eslintignore
+# This file is a symbolic link of .eslintignore
+.vscode
+.idea
+.DS_Store
+.next
+.husky
+out
+
+node_modules
+dist
+build
+logs
+
+npm-debug.log
+yarn-error.log
+
+config/local*
+/deploy/*.retry
+
+storybook-static
+
+static
+build

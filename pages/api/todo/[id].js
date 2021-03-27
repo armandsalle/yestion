@@ -13,4 +13,12 @@ handler.get(async (req, res) => {
   await TodoController.getTodo(req, res)
 })
 
+handler.delete(async (req, res) => {
+  await TodoController.deleteTodo(req, res)
+})
+
+handler.put(async (req, res) => {
+  await TodoController.updateTodo(req, res)
+})
+
 export default handler

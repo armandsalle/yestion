@@ -10,7 +10,7 @@ export default function Home() {
   const getTodos = useCallback(async () => {
     const t = await fetch('/api/todo')
     const data = await t.json()
-    console.log(data.todos)
+
     setTodos(data.todos?.reverse() || [])
   }, [])
 
@@ -58,20 +58,6 @@ export default function Home() {
           </section>
         </>
       )}
-
-      {/* {e.body.map((el, i) => (
-                    <div key={i}>
-                      {el.as === 'Text' && <p>{el.content}</p>}
-                      {el.as === 'Title' && <h3>{el.content}</h3>}
-                      {el.as === 'List' && (
-                        <ul>
-                          {el.contentList.map((li, index) => (
-                            <li key={index}>{li.content}</li>
-                          ))}
-                        </ul>
-                      )}
-                    </div>
-                  ))} */}
     </div>
   )
 }

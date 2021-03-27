@@ -1,16 +1,17 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+.template-text[placeholder]:empty::before {
+  content: attr(placeholder);
+  color: rgb(158, 158, 158);
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.template-text[placeholder]:empty:focus::before {
+  content: "";
 }
 
-* {
-  box-sizing: border-box;
+.handle {
+  opacity: 0;
+  transition: opacity 150ms ease;
+}
+
+.item-template:hover .handle {
+  opacity: 1;
 }
