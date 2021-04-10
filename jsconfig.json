@@ -9,7 +9,8 @@
       "@/pages/*": ["pages/*"],
       "@/public/*": ["public/*"],
       "@/styles/*": ["styles/*"],
-      "@/components/*": ["components/*"]
+      "@/components/*": ["components/*"],
+      "@/hooks/*": ["hooks/*"]
     }
   }
 }

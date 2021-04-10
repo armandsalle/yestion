@@ -1,5 +1,5 @@
-import Header from '@/components/header'
-import NewTodo from '../newTodo'
+import Header from '@/components/hoc/header'
+import NewTodo from '@/components/ui/todo/newTodo'
 
 const Layout = ({ Component, pageProps }) => {
   return (

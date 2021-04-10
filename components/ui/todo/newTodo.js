@@ -1,6 +1,7 @@
 import { useSession } from 'next-auth/client'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
+import Loader from '../loader'
 
 const NewTodo = () => {
   const router = useRouter()
@@ -25,7 +26,6 @@ const NewTodo = () => {
             order: 1,
           },
         ],
-        complete: false,
         order: 1,
       }),
     })
@@ -36,12 +36,10 @@ const NewTodo = () => {
       router.push('/todo/' + data.todo._id)
       setNewTodoTitle('')
     }
-
-    console.log(data)
   }
 
   if (loading) {
-    return <p>loading</p>
+    return <Loader />
   }
 
   if (!session) {
