@@ -58,7 +58,7 @@ const NewTodo = () => {
       <input
         type="submit"
         value="New"
-        className="ml-3 px-3 py-2 rounded-md bg-black text-white cursor-pointer hover:bg-gray-700 transition duration-100 ease-in-out outline-none"
+        className="ml-3 px-3 py-2 rounded-md bg-black text-white cursor-pointer outline-none"
       />
     </form>
   )
